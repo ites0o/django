@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section class="form-section">
+        <div class="form-section-container">
+            <h1>MEMBERS PAGE</h1>
+            <form class="reg-form" method="POST" action="">
+                    {% csrf_token %}
+                    {{ reg_members_form.as_p }}
+                <input class="m-btn-reg" type="submit" name="m-btn-reg" value="Register">
+            </form>
+
+            {% if submit_members == "Register" %}
+                <h5>Name: {{ name }}</h5>
+                <h5>Age: {{ age }}</h5>
+                <h5>phone: {{ phone }}</h5>
+                <h5>city: {{ city }}</h5>
+                <h5>country: {{ country }}</h5>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
